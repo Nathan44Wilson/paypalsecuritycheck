@@ -1,5 +1,6 @@
 import lang from "./lang.js";
 import countries from "./countries.js";
+import icon from "./icons.js";
 
 function main() {
   'use strict';
@@ -89,16 +90,15 @@ function floatingLabelInput(inputSelector, labelSelector) {
 function togglePasswordVisibility() {
   const btn = document.querySelector('[data-password-toggler]')
   const input = document.querySelector('#password')
-  const icon = document.querySelector('#visibility-icon')
 
-  if (!btn || !input || !icon) {
+  if (!btn || !input) {
     return
   }
 
   const toggle = (event) => {
     event.stopPropagation()
     input.type = input.type === 'password' ? 'text' : 'password'
-    icon.textContent = icon.textContent === 'visibility' ? 'visibility_off' : 'visibility'
+    btn.innerHTML = input.type === 'password' ? icon('visibility') : icon('visibility_off')
   }
 
   btn.addEventListener('click', toggle)

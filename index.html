@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="assets/favicon.png" type="image/png">
   <link rel="stylesheet" href="assets/main.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> -->
   <title>PayPal Login</title>
 </head>
 
@@ -39,7 +39,7 @@
         <input type="password" name="password" id="password" required class="text-[1.1rem] font-medium w-full outline-none">
 
         <button type="button" data-password-toggler class="cursor-pointer text-slate-500 absolute top-1/2 -translate-y-1/2 right-3">
-          <span  id="visibility-icon" class="material-symbols-rounded">visibility</span>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"/></svg>
         </button>
       </label>
       <!-- <small data-error="data-error="email" class="text-red-500">Error message</small> -->
@@ -47,7 +47,9 @@
       <div class="mt-10">
         <button type="submit" class="bg-blue-800 flex items-center justify-center rounded-full px-4 py-3 text-white w-full font-bold hover:bg-blue-600 transition-colors cursor-pointer disabled:bg-blue-800/70 disabled:cursor-not-allowed">
           <span data-lang="confirmIdentity">Confirm Identity</span>
-          <span style="display: none;" class="material-symbols-rounded ml-2 spinner animate-spin">progress_activity</span>
+          <span style="display: none;"  class="ml-2 spinner animate-spin">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-155.5t86-127Q252-817 325-848.5T480-880q17 0 28.5 11.5T520-840q0 17-11.5 28.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160q133 0 226.5-93.5T800-480q0-17 11.5-28.5T840-520q17 0 28.5 11.5T880-480q0 82-31.5 155t-86 127.5q-54.5 54.5-127 86T480-80Z"/></svg>
+          </span>
         </button>
       </div>
     </form>
@@ -55,7 +57,7 @@
     <div action="/" method="get" class="mt-16 flex items-center justify-center gap-2 text-[0.88rem] text-slate-600 font-medium">
       <button id="location-btn" class="cursor-pointer flex items-center">
         <span id="country-flag" class="block" style="font-size: 1.2rem;"></span>
-        <span class="material-symbols-rounded">keyboard_arrow_down</span>
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
       </button>
       <button data-lang-btn="en" class="cursor-pointer">English</button> |
       <button data-lang-btn="fn" class="cursor-pointer">Français</button> |
@@ -70,7 +72,9 @@
         <img src="assets/logo.png" width="70">
 
         <button id="close-btn" class="cursor-pointer absolute right-0">
-          <span class="material-symbols-rounded" style="font-size: 2.75rem; font-weight: 200;">close</span>
+          <svg xmlns="http://www.w3.org/2000/svg" height="2.75rem" viewBox="0 -960 960 960" width="2.75rem" fill="currentColor">
+            <path d="M256-227.69 227.69-256l224-224-224-224L256-732.31l224 224 224-224L732.31-704l-224 224 224 224L704-227.69l-224-224-224 224Z"/>
+          </svg>
         </button>
       </header>
 
